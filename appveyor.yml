@@ -48,7 +48,7 @@ environment:
 #  - mssql2014
 
 stack:
-  - node 12
+  - node 11
 
 install:
   - git submodule init
