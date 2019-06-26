@@ -94,9 +94,9 @@ after_build:
   - sh: if [ $APPVEYOR_REPO_BRANCH == 'master' ]; then docker build -t ndlonmachete/debian:$APPVEYOR_BUILD_VERSION .; fi
   - sh: if [ $APPVEYOR_REPO_BRANCH != 'master' ]; then docker build -t ndlonmachete/debian:$APPVEYOR_BUILD_VERSION-beta .; fi
   - sh: docker images
-  - sh: docker login -u chaim1221 -p "$DOCKER_PASSWORD"
-  - sh: if [ $APPVEYOR_REPO_BRANCH == 'master' ]; then docker push ndlonmachete/debian:$APPVEYOR_BUILD_VERSION; fi
-  - sh: if [ $APPVEYOR_REPO_BRANCH != 'master' ]; then docker push ndlonmachete/debian:$APPVEYOR_BUILD_VERSION-beta; fi
+  #- sh: docker login -u chaim1221 -p "$DOCKER_PASSWORD"
+  #- sh: if [ $APPVEYOR_REPO_BRANCH == 'master' ]; then docker push ndlonmachete/debian:$APPVEYOR_BUILD_VERSION; fi
+  #- sh: if [ $APPVEYOR_REPO_BRANCH != 'master' ]; then docker push ndlonmachete/debian:$APPVEYOR_BUILD_VERSION-beta; fi
 
 #before_package:
 
@@ -123,9 +123,9 @@ after_build:
 #on_success
 #on_failure
 #on_finish
-notifications:
-  - provider: Slack
-    incoming_webhook: https://hooks.slack.com/services/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
+#notifications:
+ # - provider: Slack
+  #  incoming_webhook: https://hooks.slack.com/services/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
 # ...or using auth token
 # - provider: Slack
 #   auth_token:
