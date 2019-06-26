@@ -21,10 +21,11 @@ image:
 #  - Visual Studio 2017
 #  Skipping because no windows atm
 
+#
 init:
-  - docker pull mcr.microsoft.com/mssql/server
-  - docker network create --driver bridge machete-bridge
-  - docker network inspect machete-bridge
+  #- docker pull mcr.microsoft.com/mssql/server
+  #- docker network create --driver bridge machete-bridge
+  #- docker network inspect machete-bridge
 
 #clone_folder: /home/appveyor/projects/machete-web
 #shallow_clone: false
