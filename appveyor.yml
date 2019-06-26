@@ -14,7 +14,7 @@ version: '1.14.{build}'
 #only_commits
 #skip_branch_with_pr: false
 
-#max_jobs: 1
+max_jobs: 1
 
 image:
   - Ubuntu1804
