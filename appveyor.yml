@@ -48,7 +48,7 @@ environment:
 #  - mssql2014
 
 stack:
-  - node 11
+  - node 12
 
 install:
   - git submodule init
@@ -78,7 +78,7 @@ before_build:
   - sh: cd UI
   - sh: npm install
   - sh: npm run --silent build-local-dev
-  - sh: npm run start-local-dev &
+  #- sh: npm run start-local-dev &
   - sh: cd ..
   - sh: sed -i "s/APPVEYOR_VERSION/$APPVEYOR_BUILD_VERSION/" "./Machete.Web/Views/Home/Index.cshtml"
   - sh: dotnet build
