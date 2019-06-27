@@ -16,8 +16,8 @@ version: '1.14.{build}'
 
 max_jobs: 1
 
-image:
-  - Ubuntu1804
+#image:
+ # - Ubuntu1804
 #  - Visual Studio 2017
 #  Skipping because no windows atm
 
@@ -37,8 +37,8 @@ hosts:
 
 # https://ci.appveyor.com/account/savagelearning/tools/encrypt
 environment:
-  APPVEYOR_BUILD_WORKER_IMAGE=Ubuntu1804
-  APPVEYOR_BUILD_WORKER_CLOUD=gce-test
+  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
+  APPVEYOR_BUILD_WORKER_CLOUD: gce-test
   MSBUILDDISABLENODEREUSE: 1
   DOCKER_PASSWORD:
     secure: q4kZwveA7LCpRBLmWNpf5Q==
