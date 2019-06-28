@@ -37,8 +37,6 @@ hosts:
 
 # https://ci.appveyor.com/account/savagelearning/tools/encrypt
 environment:
- # APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
-  #APPVEYOR_BUILD_WORKER_CLOUD: gce-test
   MSBUILDDISABLENODEREUSE: 1
   DOCKER_PASSWORD:
     secure: q4kZwveA7LCpRBLmWNpf5Q==
@@ -57,7 +55,7 @@ install:
   - git submodule update
 #  - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 #  - sudo apt-get install -y nodejs
-  - npm install -g @angular/cli
+  - npm install -g @angular/cli </dev/null
   - docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=passw0rD!' --network machete-bridge -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server
 
 #assembly_info: (change assembly values, e.g., visibility)
@@ -74,13 +72,13 @@ configuration:
 
 # dotnet build includes restore
 before_build:
-  - sh: node --version
+  - sh: node --version </dev/null
   - sh: dotnet --version
   - sh: dotnet clean
   - sh: cd UI
-  - sh: npm install 
-  - sh: npm run --silent build-local-dev 
-  - sh: npm run start-local-dev </dev/null
+  - sh: npm install </dev/null
+  - sh: npm run --silent build-local-dev </dev/null
+  #- sh: npm run start-local-dev &
   - sh: cd ..
   - sh: sed -i "s/APPVEYOR_VERSION/$APPVEYOR_BUILD_VERSION/" "./Machete.Web/Views/Home/Index.cshtml"
   - sh: dotnet build
