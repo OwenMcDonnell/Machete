@@ -78,8 +78,8 @@ before_build:
   - sh: dotnet --version
   - sh: dotnet clean
   - sh: cd UI
-  - sh: npm install </dev/null
-  - sh: npm run --silent build-local-dev </dev/null
+  - sh: npm install 
+  - sh: npm run --silent build-local-dev 
   - sh: npm run start-local-dev </dev/null
   - sh: cd ..
   - sh: sed -i "s/APPVEYOR_VERSION/$APPVEYOR_BUILD_VERSION/" "./Machete.Web/Views/Home/Index.cshtml"
