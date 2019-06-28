@@ -78,7 +78,7 @@ before_build:
   - sh: dotnet --version
   - sh: dotnet clean
   - sh: cd UI
-  - sh: npm install
+  - sh: npm install </dev/null
   - sh: npm run --silent build-local-dev </dev/null
   - sh: npm run start-local-dev &
   - sh: cd ..
